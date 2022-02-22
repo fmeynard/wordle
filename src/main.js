@@ -117,10 +117,17 @@ async function play() {
             if (word.length === 0) {
                 console.log('reset game');
                 matrix = initialMatrix;
-                tries = 1;
+                tries = 0;
                 continue;
             }
-        } 
+        }
+        
+        const key = word + '_' + score;
+        if (typeof matrix[key] == 'undefined') {
+            console.log('word not found', { word, score, key });
+            continue;
+        }
+
         tries++;
 
         score = prompt('Score : ');
@@ -129,13 +136,7 @@ async function play() {
             console.log('-------');
             console.log('New game !');
             matrix = initialMatrix;
-            tries = 1;
-            continue;
-        }
-        const key = word + '_' + score;
-        if (typeof matrix[key] == 'undefined') {
-            console.log('word not found', { word, score, key });
-
+            tries = 0;
             continue;
         }
 
