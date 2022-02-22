@@ -99,7 +99,7 @@ function getResults(patternsMatrix) {
 }
 
 async function play() {
-    initialGuess = prompt('Initial guess ( enter to compute everything ) :');
+    initialGuess = prompt('Initial guess ( enter to compute everything ) : ');
     if (initialGuess.length === 0) {
         initialGuess = null;
     }
@@ -125,7 +125,7 @@ async function play() {
 
         score = prompt('Score : ');
         if (score === '22222' || score === '') { 
-            console.log(`Winning word ${word} in ${x} tries`);
+            console.log(`Winning word ${word} in ${tries} tries`);
             console.log('-------');
             console.log('New game !');
             matrix = initialMatrix;
